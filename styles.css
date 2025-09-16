@@ -1,0 +1,158 @@
+/* ====== Dark Tech Theme (drop-in) ====== */
+:root{
+  --max:1100px; --pad:1rem;
+  --bg:#0b0f14;               /* page background */
+  --bg-soft:#0e141d;          /* subtle stripes background */
+  --panel1:#111826;           /* card top */
+  --panel2:#0f1722;           /* card bottom */
+  --border:#223042;
+  --txt:#e6edf3;
+  --muted:#9aa8b6;
+  --accent:#00e5ff;           /* cyan accent */
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--txt); background:var(--bg);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
+  /* subtle techy grid */
+  background-image: radial-gradient(transparent 1px, var(--bg) 1px),
+                    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 40%);
+  background-size: 24px 24px, 100% 100%;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ===== Nav (sticky + glass) ===== */
+.nav{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(10,14,21,.65);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav .wrap{
+  max-width:var(--max); margin:0 auto; padding:.9rem var(--pad);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{font-weight:700; color:var(--txt)}
+.nav nav a{margin-left:1.25rem; color:var(--txt); opacity:.85}
+.nav nav a:hover, .nav nav a.active{opacity:1}
+
+/* ===== Sections ===== */
+.section{padding:3rem var(--pad)}
+.section.alt{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.container{max-width:var(--max); margin:0 auto}
+.section-title{ text-align:center; font-size:2.1rem; margin:0 0 1.2rem}
+
+/* ===== About layout ===== */
+.about-grid{
+  min-height:calc(100vh - 68px);
+  display:grid; grid-template-columns:360px 1fr; gap:2rem; align-items:center;
+}
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr } }
+
+.pfp-wrap{display:flex; justify-content:center; align-items:center}
+.pfp{
+  width:340px; height:340px; border-radius:50%; object-fit:cover;
+  background:#131b26; border:2px solid var(--border); box-shadow:var(--shadow);
+}
+
+.about-panel{
+  background:linear-gradient(180deg, var(--panel1), var(--panel2));
+  border:1px solid var(--border); border-radius:14px; padding:2rem; box-shadow:var(--shadow);
+}
+.about-title{ font-size:2.6rem; margin:0 0 .8rem; text-align:center; letter-spacing:.2px}
+.divider{ height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent);
+          margin:.5rem 0 1.1rem }
+.about-text{ color:var(--txt); opacity:.95; text-align:center }
+
+/* ===== Projects ===== */
+.projects{ display:flex; flex-direction:column; gap:1.25rem }
+.project-row{
+  display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.08));
+  border:1px solid var(--border); border-radius:14px; padding:1rem; box-shadow:var(--shadow);
+}
+@media (max-width:900px){ .project-row{ grid-template-columns:1fr } }
+
+.project-image{
+  width:100%; height:100%; object-fit:cover;
+  background:#141c27; border:1px solid var(--border); border-radius:10px;
+}
+
+.project-details{
+  display:flex; flex-direction:column; justify-content:center;
+  background:linear-gradient(180deg, var(--panel1), var(--panel2));
+  border:1px solid var(--border); border-radius:10px; padding:1.25rem;
+}
+.project-details h3{ margin:.2rem 0 .5rem; font-size:1.35rem }
+.project-details p{ margin:0 0 .65rem }
+.small{ color:var(--muted) }
+
+/* ===== Buttons / Links ===== */
+.btn{
+  display:inline-block; border:1px solid var(--accent); color:var(--txt);
+  background: rgba(0,229,255,.09);
+  border-radius:12px; padding:.55rem .95rem; text-decoration:none;
+  box-shadow: 0 0 0 0 rgba(0,229,255,.25); transition: box-shadow .25s, transform .1s, background .25s;
+}
+.btn:hover{ background: rgba(0,229,255,.14); text-decoration:none;
+            box-shadow: 0 0 20px 2px rgba(0,229,255,.25) }
+.btn:active{ transform: translateY(1px) }
+
+/* ===== PDF Frame ===== */
+.pdf-frame{ border:1px solid var(--border); border-radius:14px; overflow:hidden;
+            background:linear-gradient(180deg, var(--panel1), var(--panel2)); box-shadow:var(--shadow) }
+.pdf-frame embed{ width:100%; height:900px }
+
+/* ===== Footer ===== */
+footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted); text-align:center; padding:2rem var(--pad);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+
+/* === Soft-Dark theme overrides (paste at end of style.css) === */
+:root{
+  :root{
+  --bg:#141b24;
+  --panel1:#1a2940;
+  --panel2:#142235;
+  --border:#354763;
+  --txt:#f4f7fb;
+  --muted:#c2ced9;
+  --accent:#5be7ff;
+}
+}
+
+
+/* glassy nav, a touch lighter */
+.nav{
+  background:rgba(17,22,30,.72);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* panels/cards a bit lighter with softer shadow */
+.about-panel,
+.project-details,
+.project-row,
+.pdf-frame{
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+
+/* profile ring + surface tint */
+.pfp{ background:#16202e; border-color:var(--border); }
+
+/* subtle brighter wash on the page backdrop */
+body{
+  background-image:
+    radial-gradient(transparent 1px, var(--bg) 1px),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 40%);
+  background-size:24px 24px,100% 100%;
+}
+
